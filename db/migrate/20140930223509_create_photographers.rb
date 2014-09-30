@@ -1,7 +1,7 @@
 class CreatePhotographers < ActiveRecord::Migration
   def change
     create_table :photographers do |t|
-      t.boolean :pro-status
+      t.boolean :pro_status
       t.string :name
 
       t.timestamps
