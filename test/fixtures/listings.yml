@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  budget: MyString
+  location: MyString
+  image: MyString
+  category_id: 1
+  photographer_id: 1
+
+two:
+  budget: MyString
+  location: MyString
+  image: MyString
+  category_id: 1
+  photographer_id: 1
