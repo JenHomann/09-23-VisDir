@@ -4,4 +4,12 @@ class Customer < ActiveRecord::Base
   has_many :favorites
   has_many :photographers, through: :favorites
   
+  def fav_count
+    count = 0
+
+    favorites.each { |f| count += 1 }
+
+    count
+  end
+  
 end
