@@ -4,4 +4,5 @@ class Listing < ActiveRecord::Base
   belongs_to :photographer
   belongs_to :category
   
+  mount_uploader :image, ImageUploader
 end
