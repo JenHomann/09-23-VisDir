@@ -8,8 +8,8 @@ class Listing < ActiveRecord::Base
   validates :location, presence: true
   validates :category_id, presence: true
   
-  scope :high_budget, where (:budget => "high")
-  scope :low_budget, where (:budget => "low")
+  scope :high_budget, where(:budget => "high")
+  scope :low_budget, where(:budget => "low")
   
   mount_uploader :image, ImageUploader
 end
