@@ -1,0 +1,30 @@
+<div id="searchbar">
+  <div id="searchbar-label">I'm looking for</div>
+
+  <div class="searchbar-section">
+    <!-- #### HOW TO include the search for all categories ### -->
+    <%= form_for :search do |f| %>
+      <%= f.collection_select(:category_id, @categories, :id, :name )%>
+    <% end %>
+  
+    <div class="searchbar-section-label">Photographers</div>
+  </div>
+
+  <div class="searchbar-label_section">in</div>
+
+  <div class="searchbar-section">
+    <%= form_for :search do |f| %>
+      <%= f.collection_select(:location, @listings, :id, :location )%>
+    <% end %>
+    <!-- #### HOW TO include the search for all locations?? ### -->
+  </div>
+
+  <div class="searchbar-label_section">for</div>
+
+  <div class="searchbar-section">
+    <!-- #### HOW TO include the search for all budgets?? ### -->
+    <%= form_for :search do |f| %>
+      <%= f.collection_select(:budget, @listings, :id, :budget)%>
+    <% end %>
+  </div>
+</div>

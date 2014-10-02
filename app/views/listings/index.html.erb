@@ -1,0 +1,58 @@
+<main>
+  <div id="main">
+    
+    <%= render partial: "/layouts/searchbar" %>
+  
+    <div id="cards">
+      
+      <!-- Loop through all listings, -->
+      <% @listings.each do |l| %>
+      <!-- only display those where pro_status? => true-->
+        <% if l.photographer.pro_status? %>
+          <div class="card card-pro">
+        
+            <!-- ajax request to add this to current customer's faves -->
+            <a href="#" class="card-fav">Add to Favs</a>
+      
+            <div class="card-preview">
+          
+              <!-- show associated image, make it clickable to the listing page -->
+              <%= link_to(l.image, listing_path(l.id)) %>
+              <a href="/listing/1"><img src="http://placekitten.com/220/200"></a>
+            </div>
+          
+            <!-- list the associated photographer's name and link to the listing page -->
+            <%= link_to(l.photographer.name, listing_path(l.id)) %>
+            <!-- <h2 class="card-header"><a href="/listing/1">ACME Photography</a></h2> -->
+      
+            <div class="card-details">
+            
+              <!-- display each listing's locationand budget -->
+              <div class="card-details-location"><%= l.location.capitalize %></div>
+              <div class="card-details-budget"><%= l.budget.capitalize %> Budget</div>
+            </div>
+          </div>
+          
+        <% else %>
+        <!-- only display those where pro_status? => false -->
+        
+        <div class="card">
+          <a href="#" class="card-fav">Remove from Favs</a>
+          
+          <%= link_to(l.photographer.name, listing_path(l.id)) %>
+          <!-- <h2 class="card-header"><a href="/listing/11">Still Photography</a></h2> -->
+      
+          <div class="card-preview">
+            <%= link_to(l.image, listing_path(l.id)) %>
+            <a href="/listing/11"><img src="http://placekitten.com/220/200"></a>
+          </div>
+      
+          <div class="card-details">
+            <div class="card-details-location"><%= l.location.capitalize %></div>
+            <div class="card-details-budget"><%= l.budget.capitalize %> Budget</div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</main>
