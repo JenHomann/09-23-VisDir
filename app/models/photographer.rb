@@ -6,7 +6,7 @@ class Photographer < ActiveRecord::Base
   has_many :customers, through: :favorites
   has_many :categories, through: :listings
   
-  validates :email, :password, :password_confirmation, :email, :pro_status, presence: true
+  validates :email, :password, :password_confirmation, :pro_status, presence: true
   validates :email, uniqueness: true
 
   has_secure_password
