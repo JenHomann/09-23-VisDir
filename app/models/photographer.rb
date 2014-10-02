@@ -11,7 +11,7 @@ class Photographer < ActiveRecord::Base
 
   has_secure_password
   
-  scope :pro_status, where (:pro_status => true)
-  scope :not_pro_status, where (:pro_status => false)
+  scope :pro_status, where(:pro_status => true)
+  scope :not_pro_status, where(:pro_status => false)
 
 end
