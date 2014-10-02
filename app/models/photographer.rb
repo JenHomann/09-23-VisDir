@@ -1,14 +1,15 @@
 class Photographer < ActiveRecord::Base
-  attr_accessible :name, :pro_status
+  attr_accessible :name, :pro_status, :email, :password, :password_confirmation
   
   has_many :favorites
   has_many :listings
   has_many :customers, through: :favorites
   has_many :categories, through: :listings
   
-  validates :name, presence: true
-  validates :name, uniqueness: true
-  validates :pro_status, presence: true
+  validates :email, :password, :password_confirmation, :email, :pro_status, presence: true
+  validates :email, uniqueness: true
+
+  has_secure_password
   
   scope :pro_status, where (:pro_status => true)
   scope :not_pro_status, where (:pro_status => false)
