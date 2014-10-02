@@ -3,6 +3,8 @@ class Listing < ActiveRecord::Base
   
   belongs_to :photographer
   belongs_to :category
+  has_many :favorites
+  has_many :customers, through: :favorites
   
   validates :budget, presence: true
   validates :location, presence: true

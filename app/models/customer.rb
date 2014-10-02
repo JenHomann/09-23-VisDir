@@ -2,7 +2,7 @@ class Customer < ActiveRecord::Base
   attr_accessible :ip_address
   
   has_many :favorites
-  has_many :photographers, through: :favorites
+  has_many :listings, through: :favorites
   
   def fav_count
     count = 0
