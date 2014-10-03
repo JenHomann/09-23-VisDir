@@ -1,1 +1,25 @@
 <h1>Edit <%= @listing.photographer.name %>'s details</h1>
+
+<%= form_for @listing, :html => {:multipart => true } do |f| %>
+
+  <p><%= f.label :budget %><br>
+    <%= f.text_field :budget %></p>
+  
+  <p><%= f.label :location %></br>
+    <%= f.text_field :location %></p>
+  
+  <p><%= f.label :image %></br>
+  <%= f.file_field :image %></p>
+  
+  <!-- <%= f.label :remote_image_url, "or image URL" %>
+  <%= f.text_field :remote_image_url %> -->
+  
+  <p>
+    <%= f.fields_for :category do |c| %>
+      <%= c.label :name, "Category" %></br>
+      <%= c.text_field :name %>
+    <% end %>
+
+  
+  <p><%= f.submit %></p>
+<% end %>

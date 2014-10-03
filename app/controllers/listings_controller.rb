@@ -29,7 +29,7 @@ class ListingsController < ApplicationController
   def update
     @listing = Listing.find(params[:id])
     
-    if @listing.update_attributes(params[:id])
+    if @listing.update_attributes(params[:listing])
       redirect_to listing_path(@listing.id), :notice => "Updating listing."
     else
       render "edit"

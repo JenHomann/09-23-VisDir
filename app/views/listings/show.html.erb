@@ -1,1 +1,8 @@
 <h1><%= @listing.photographer.name %> details </h1>
+
+<p><%= @listing.photographer.pro_status%></p>
+<p><%= @listing.photographer.email%></p>
+<p><%= @listing.budget%></p>
+<p><%= @listing.location%></p>
+<p><%= image_tag @listing.image_url.to_s %></p>
+<p><%= @listing.category.name%></p>

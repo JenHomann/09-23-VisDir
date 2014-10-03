@@ -2,20 +2,26 @@
 
 <%= form_for @listing do |f| %>
 
-  <%= f.label :budget %>
-  <%= f.collection_select(:budget, @listings, :id, :budget) %>
+  <p><%= f.label :budget %><br>
+  <%= f.collection_select(:budget, @listings, :id, :budget) %><p>
   
-  <%= f.label :location %>
-  <%= f.collection_select(:location, @listings, :id, :location) %>
+  <p><%= f.label :location %></br>
+  <%= f.collection_select(:location, @listings, :id, :location) %></p>
   
-  <%= f.label :image %>
-  <%= f.file_field :image %>
+  <p><%= f.label :image %></br>
+  <%= f.file_field :image %></p>
   
   <!-- <%= f.label :remote_image_url, "or image URL" %>
   <%= f.text_field :remote_image_url %> -->
   
-  <%= f.label :category %>
-  <%= f.collection_select(:category_id, @categories, :id, :name ) %>
+  <p>
+    <%= f.fields_for :category do |c| %>
+      <%= c.label :name %></br>
+      <%= c.collection_select(:category_id, @categories, :id, :name )%><p>
+    <% end %>
   
-  <%= f.submit %>
+  <!-- <%= f.label :category %>
+  <%= f.collection_select(:category_id, @categories, :id, :name ) %> -->
+  
+  <p><%= f.submit %></p>
 <% end %>

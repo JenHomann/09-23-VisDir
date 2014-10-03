@@ -15,6 +15,8 @@
 </head>
 <body>
 
+<%= session.inspect %>
+
 <header>
   <div id="header">
     <h1 id="header-logo"><a href="#">VisDir</a></h1>
@@ -36,6 +38,13 @@
     </div>
   </div>
 </header>
+
+      <% if flash[:notice]%>
+        <p id="notice"><%= flash[:notice]%></p>
+        <% end %>
+      <% if flash[:alert] %>
+        <p id="alert"><%= flash[:alert]%></p>
+      <% end %>
 
 <%= yield %>
 
