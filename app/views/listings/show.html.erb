@@ -6,3 +6,36 @@
 <p><%= @listing.location%></p>
 <p><%= image_tag @listing.image_url.to_s %></p>
 <p><%= @listing.category.name%></p>
+
+<main>
+  <div id="main">
+    <h2 class="listing-details-header"><%= @listing.photographer.name %></h2>
+    
+    <div class="card card-full">
+      <%= image_tag (@listing.image_url.to_s) %>
+      <!-- <img src="http://placekitten.com/g/200/180"> -->
+      
+      <div class="listing-details">
+        <h3 class="listing-details-subheader"><%= @listing.photographer.name %></h3>
+        <div class="listing-details-location">Location: <%= @listing.location %></div>
+        <div class="listing-details-budget"><%= @listing.budget.capitalize %> Budget</div>
+        
+        <p class="listing-details-description"><%= simple_format(@listing.description) %></p>
+        
+        <div class="listing-details-contact">
+          <%= mail_to @listing.photographer.email %>
+          <%= link_to("Homepage", @listing.photographer.homepage) %>
+          <% if @listing.photographer.twitter != nil %>
+            <%= link_to "Twitter", @listing.photographer.twitter %>
+          <% end %>
+          <!-- <% if @listing.photographer.twitter != nil %> -->
+            
+          <!-- <% end %> -->
+          <!-- <a class="listing-details-contact-item" href="mailto:geoff_j@example.com">geoff_j@example.com</a>
+          <a class="listing-details-contact-item" href="http://geoffjohnsonphoto.com">http://geoffjohnsonphoto.com</a> -->
+          <!-- Optional: Link to Twitter account. (Some users will have one; others may not.) -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

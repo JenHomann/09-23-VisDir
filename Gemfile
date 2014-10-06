@@ -25,8 +25,12 @@ gem 'carrierwave'
 
 gem 'delayed_job_active_record'
 
+gem 'delayed_job_web'
+
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
+
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

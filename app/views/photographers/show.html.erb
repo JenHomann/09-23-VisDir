@@ -1,0 +1,14 @@
+<h1><%= @photographer.name %></h1>
+
+<p>
+  Name: <%= @photographer.name %></br>
+  Email: <%= @photographer.email %></br>
+  Website: website tbd</br>
+  Twitter: twitter tbd</br>
+  Listings:</br>
+    <% @photographer.listings.each do |l| %>
+      Category: <%= l.category.name %></br>
+      Budget: <%= l.budget %></br>
+      Location: <%= l.location %>
+    <% end %>
+</p>

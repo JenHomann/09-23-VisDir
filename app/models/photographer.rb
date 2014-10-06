@@ -4,8 +4,8 @@ class Photographer < ActiveRecord::Base
   has_many :listings
   has_many :categories, through: :listings
   
-  validates :email, :password, :password_confirmation, :pro_status, presence: true
-  validates :email, uniqueness: true
+  validates :email, :password, :password_confirmation, presence: true
+  # validates :email, uniqueness: true
 
   has_secure_password
   

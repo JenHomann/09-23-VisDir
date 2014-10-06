@@ -4,4 +4,6 @@ VisDir::Application.routes.draw do
   
   resources :listings, :photographers
   
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
+  
 end

@@ -1,0 +1,22 @@
+<h1>All photographers on this site</h1>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Website</td>
+    <td>Twitter</td>
+    <td>Edit</td>
+    <td>Destroy</td>
+  </tr>
+  <% @photographers.each do |p| %>
+    <tr>
+      <td><%= link_to(p.name, photographer_path(p.id)) %></td>
+      <td><%= p.email %></td>
+      <td>website tbd</td>
+      <td>twitter tbd</td>
+      <td><%= link_to("Edit", edit_photographer_path(p.id)) %></td>
+      <td><%= link_to("Delete", photographer_path(p.id), method: :delete, data: { confirm: 'Are you sure?'} )%></td>
+    </tr>
+  <% end %>
+</table>
